@@ -10,6 +10,9 @@ var setup_receiver = function () {
     castReceiverManager.onReady = function (event) {
         console.log('Received Ready event: ' + JSON.stringify(event.data));
         window.castReceiverManager.setApplicationState("Application status is ready...");
+
+
+        $('#message').innerHTML('<h2>palla</h2>')
     };
 
     // handler for 'senderconnected' event
@@ -34,7 +37,7 @@ var setup_receiver = function () {
     // create a CastMessageBus to handle messages for a custom namespace
     window.messageBus =
         window.castReceiverManager.getCastMessageBus(
-            'urn:x-cast:com.google.cast.sample.helloworld');
+            'urn:x-cast:com.google.cast.asd.palla');
     // handler for the CastMessageBus message event
     window.messageBus.onMessage = function (event) {
         console.log('Message [' + event.senderId + ']: ' + event.data);
@@ -52,7 +55,7 @@ var setup_receiver = function () {
 
 var setup_sender =  function() {
     var applicationID = '794B7BBF';
-    var namespace = 'urn:x-cast:com.google.cast.sample.helloworld';
+    var namespace = 'urn:x-cast:com.google.cast.asd.palla';
     var session = null;
     /**
      * Call initialization for Cast
